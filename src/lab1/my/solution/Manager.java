@@ -14,10 +14,12 @@ import java.text.SimpleDateFormat;
 public class Manager {
     private Employee e1;
     
+    //Manager hires employee
     public void hireEmployee(String fname, String lname, String ssn){
         e1 = new Employee(fname, lname, ssn);
     }
     
+    //Manager starts orientation and gives cubeID
     public void orientEmployee(){
         e1.doOrientation("1378");
     }

@@ -15,6 +15,7 @@ public class Employee {
     private String cubeId;
     private Date currentDate;
 
+    //Constructor
     public Employee(String firstName, String lastName, String ssn) {
         currentDate = new Date();
         this.firstName = firstName;
@@ -22,7 +23,7 @@ public class Employee {
         this.ssn = ssn;
     }
     
-    
+    //Method that runs all the orientation processes
     public void doOrientation(String cubeId){
         meetWithHrForBenefitAndSalaryInfo();
         meetDepartmentStaff();
@@ -96,11 +97,7 @@ public class Employee {
     public String getSsn() {
         return ssn;
     }
-
-    public void setSsn(String ssn) {
-        this.ssn = ssn;
-    }
-
+    
     public Date getBirthDate() {
         return birthDate;
     }
