@@ -18,9 +18,9 @@ public class Employee {
     //Constructor
     public Employee(String firstName, String lastName, String ssn) {
         currentDate = new Date();
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.ssn = ssn;
+        setFirstName(firstName);
+        setLastName(lastName);
+        setSsn(ssn);
     }
     
     //Method that runs all the orientation processes
@@ -32,40 +32,40 @@ public class Employee {
     }
     
     //Orientation Tasks
-    private void meetWithHrForBenefitAndSalaryInfo() {
+    public void meetWithHrForBenefitAndSalaryInfo() {
         SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
         String fmtDate = sdf.format(currentDate);
-        System.out.println("Met with Hr on " + fmtDate);
+        System.out.println("Met with HR on " + fmtDate);
         metWithHr = true;
     }
 
-    private void meetDepartmentStaff() {
+    public void meetDepartmentStaff() {
         if(metWithHr) {
             SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
             String fmtDate = sdf.format(currentDate);
-            System.out.println("Met with Dept. Staff on " + fmtDate);
+            System.out.println("Met with department staff on " + fmtDate);
             metDeptStaff = true;
         } else {
             System.out.printf("Sorry, you cannot meet with\ndepartment staff until you have met with HR.\n");
         }
     }
 
-    private void reviewDeptPolicies() {
+    public void reviewDeptPolicies() {
         if(metWithHr && metDeptStaff) {
             SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
             String fmtDate = sdf.format(currentDate);
-            System.out.println("Reviewed Dept. Policies on " + fmtDate);
+            System.out.println("Reviewed department policies on " + fmtDate);
             reviewedDeptPolicies = true;
         } else {
             System.out.printf("Sorry, you cannot review\ndepartment policies until you have first met with HR\nand then with department staff.\n");
         }
     }
 
-    private void moveIntoCubicle(String cubeId) {
+    public void moveIntoCubicle(String cubeId) {
         if(metWithHr && metDeptStaff && reviewedDeptPolicies) {
             SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
             String fmtDate = sdf.format(currentDate);
-            System.out.println("Moved into cube on " + fmtDate);
+            System.out.println("Moved into cube " + cubeId + " on " + fmtDate);
             this.cubeId = cubeId;
             this.movedIn = true;
         } else {
@@ -83,6 +83,7 @@ public class Employee {
     }
 
     public void setFirstName(String firstName) {
+        //Needs validation to make sure a string and not vulgar
         this.firstName = firstName;
     }
 
@@ -91,6 +92,7 @@ public class Employee {
     }
 
     public void setLastName(String lastName) {
+        //Needs validation to make sure a string and not vulgar
         this.lastName = lastName;
     }
 
@@ -98,11 +100,17 @@ public class Employee {
         return ssn;
     }
     
+    private void setSsn(String ssn) {
+        //needs validation
+        this.ssn = ssn;
+    }
+    
     public Date getBirthDate() {
         return birthDate;
     }
 
     public void setBirthDate(Date birthDate) {
+        //Needs validagtion to make sure date
         this.birthDate = birthDate;
     }
 
